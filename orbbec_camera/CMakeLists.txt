@@ -12,7 +12,7 @@ option(USE_NV_HW_DECODER "Use Nvidia hardware decoder" OFF)
 option(INSTALL_UDEV_RULES "Install udev rule for Orbbec cameras" ON)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-    add_compile_options(-Wall -Wextra -Werror -Wno-pedantic -Wno-array-bounds)
+    add_compile_options(-Wall -Wextra -Werror -Wno-error=cpp -Wno-pedantic -Wno-array-bounds)
 endif()
 
 # find dependencies

@@ -85,7 +85,7 @@ class ImageSyncNode : public rclcpp::Node {
           [this](const ImageConstPtr msg) { this->handle_synced_images({msg}); });
     } else {
       for (size_t i = 0; i < sync_topics_.size(); ++i) {
-        subscribers_[i].subscribe(this, sync_topics_[i], qos.get_rmw_qos_profile());
+        subscribers_[i].subscribe(this, sync_topics_[i], qos);
       }
       create_synchronizer();
     }
