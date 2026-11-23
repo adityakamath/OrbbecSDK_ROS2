@@ -364,6 +364,16 @@ ros2 service call /camera/get_sdk_version orbbec_camera_msgs/srv/GetString '{}'
 
 For more usage details, please refer to the official [OrbbecSDK ROS2 documentation](https://orbbec.github.io/OrbbecSDK_ROS2/en/source/camera_devices/4_application_guide/application_guide.html)
 
+## TF prefix (fork addition)
+
+`tf_prefix` (launch argument and node parameter, default empty) is prepended to every TF frame the driver names: the root `<camera_name>_link`, each stream's frame and optical frame, and `<camera_name>_accel_gyro_optical_frame`. With the default nothing changes. Set it to `robot1/` so several robots can share one `/tf`:
+
+```bash
+ros2 launch orbbec_camera gemini2.launch.py camera_name:=gemini2 tf_prefix:=robot1/
+```
+
+The frames are then `robot1/gemini2_link`, `robot1/gemini2_color_optical_frame` and so on, rooted at `robot1/gemini2_link`, and the image, point-cloud and IMU messages carry the same names. Pass it as a launch argument or in a parameter file; an empty `-p tf_prefix:=` on the command line is rejected by rcl.
+
 ## Supported Devices
 
 Currently, the following devices are supported by the OrbbecSDK ROS2 Wrapper v2-main branch.  More devices support will be added in the near future. If you can not find your device in the table below, try the [main](https://github.com/orbbec/OrbbecSDK_ROS2)  branch.
