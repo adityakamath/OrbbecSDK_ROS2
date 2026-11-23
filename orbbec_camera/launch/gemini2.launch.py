@@ -85,6 +85,7 @@ def generate_launch_description():
         DeclareLaunchArgument("linear_accel_cov", default_value="0.01"),
         DeclareLaunchArgument("angular_vel_cov", default_value="0.01"),
         DeclareLaunchArgument("publish_tf", default_value="true"),
+        DeclareLaunchArgument("tf_prefix", default_value=""),
         DeclareLaunchArgument("tf_publish_rate", default_value="0.0"),
         DeclareLaunchArgument("ir_info_url", default_value=""),
         DeclareLaunchArgument("color_info_url", default_value=""),

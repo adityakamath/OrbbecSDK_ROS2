@@ -678,6 +678,7 @@ class OBCameraNode {
   std::map<stream_index_pair, std::string> optical_frame_id_;
   std::map<stream_index_pair, std::string> depth_aligned_frame_id_;
   std::string camera_link_frame_id_;
+  std::string tf_prefix_;
   bool depth_registration_ = false;
   std::map<stream_index_pair, std::string> image_qos_;
   std::map<stream_index_pair, std::string> camera_info_qos_;
